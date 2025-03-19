@@ -49,14 +49,11 @@ class SimulatorService:
         calculated_premium = await self.calculate_base_premium(rate_applied)
         policy_limit, deductible_value = await self.calculate_policy_limit()
 
-        try:
-            repository = CarRepository()
-            await repository.store(
-                payload=self.car_details,
-                session=session,
-            )
-        except Exception as e:
-            raise e
+        repository = CarRepository()
+        await repository.store(
+            payload=self.car_details,
+            session=session,
+        )
 
         return {
             "car_details": self.car_details.model_dump(),
