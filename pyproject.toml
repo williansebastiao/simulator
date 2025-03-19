@@ -1,0 +1,51 @@
+[project]
+name = "simulator"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Willians Pereira",email = "willians@4vconnect.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard] (>=0.115.11,<0.116.0)",
+    "sqlalchemy (>=2.0.39,<3.0.0)",
+    "alembic (>=1.15.1,<2.0.0)",
+    "pendulum (>=3.0.0,<4.0.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)",
+    "pydantic-settings (>=2.8.1,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+debugpy = "^1.8.13"
+black = "^25.1.0"
+flake8 = "^7.1.2"
+autoflake = "^2.3.1"
+isort = "^6.0.1"
+pylint = "^3.3.5"
+pre-commit = "^4.1.0"
+pytest = "^8.3.5"
+
+[tool.black]
+line-length = 79
+include = 'app/'
+exclude = "migrations/"
+extend-exclude = '''
+/(__pycache__|.*\.pyc)$
+'''
+
+[tool.isort]
+profile = "black"
+src_paths = ["app"]
+skip = ["migrations/"]
+
+[tool.autoflake]
+remove-all-unused-imports = true
+remove-unused-variables = true
+recursive = true
+in-place = true
