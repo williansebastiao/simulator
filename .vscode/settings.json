@@ -9,10 +9,12 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "files.exclude": {
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
     },
     "search.exclude": {
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
     },
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,

@@ -50,13 +50,15 @@ class SimulatorService:
         policy_limit, deductible_value = await self.calculate_policy_limit()
 
         repository = CarRepository()
-        await repository.store(
+        response = await repository.store(
             payload=self.car_details,
             session=session,
         )
 
+        response = SimulatorSchema.model_validate(response).model_dump()
+
         return {
-            "car_details": self.car_details.model_dump(),
+            "car_details": response,
             "applied_rate": rate_applied,
             "calculated_premium": calculated_premium,
             "policy_limit": policy_limit,
