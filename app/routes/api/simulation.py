@@ -1,5 +1,7 @@
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.orm import Session
 
+from app.database import db_session
 from app.schemas import SimulatorResponseSchema, SimulatorSchema
 from app.services import SimulatorService
 
@@ -12,10 +14,12 @@ router = APIRouter()
     response_model=SimulatorResponseSchema,
     status_code=status.HTTP_200_OK,
 )
-async def make_simulation(payload: SimulatorSchema):
+async def make_simulation(
+    payload: SimulatorSchema, session: Session = Depends(db_session)
+):
     try:
         service = SimulatorService(car_details=payload)
-        response = await service.make_simulation()
+        response = await service.make_simulation(session=session)
         return response
     except Exception as e:
         raise HTTPException(

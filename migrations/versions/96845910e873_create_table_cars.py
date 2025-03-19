@@ -1,8 +1,8 @@
 """create table cars
 
-Revision ID: 639a51530242
+Revision ID: 96845910e873
 Revises:
-Create Date: 2025-03-18 21:20:46.733725
+Create Date: 2025-03-19 04:55:39.821102
 
 """
 
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision: str = "639a51530242"
+revision: str = "96845910e873"
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None

@@ -37,10 +37,10 @@ container: ## Enter the container
 	$(DOCKER) bash
 
 migration: ## Create a migration
-	$(POETRY_CMD) alembic revision --autogenerate -m "$(message)"
+	$(DOCKER) $(POETRY_CMD) alembic revision --autogenerate -m "$(message)"
 
 migrate: ## Run migration
-	$(POETRY_CMD) alembic upgrade head
+	$(DOCKER) $(POETRY_CMD) alembic upgrade head
 
 pre-commit: ## Run pre-commit
 	$(POETRY_CMD) pre-commit run --all-files

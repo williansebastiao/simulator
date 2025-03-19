@@ -9,6 +9,10 @@ class SimulatorSchema(BaseModel):
     percentage: float
     broker_fee: float
 
+    model_config = {
+        "from_attributes": True,
+    }
+
 
 class SimulatorResponseSchema(BaseModel):
     car_details: SimulatorSchema
