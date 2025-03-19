@@ -16,6 +16,7 @@ services:
         volumes:
             - ./app:/code/app
             - ./migrations:/code/migrations
+            - ./tests:/code/tests
             - ./.env:/code/.env
         depends_on:
             - db

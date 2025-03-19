@@ -57,7 +57,7 @@ pylint-generate: ## Generate pylint file
 lint: flake black isort autoflake pylint ## Run all linting tools
 
 test: ## Run Pytest inside the Docker container
-	$(DOCKER) $(POETRY_CMD) pytest
+	$(DOCKER) $(POETRY_CMD) pytest tests
 
 flake: ## Run Flake8
 	@echo "Running flake tools..."
