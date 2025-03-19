@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class Simulator(BaseModel):
+class SimulatorSchema(BaseModel):
     brand: str
     model: str
     year: int
