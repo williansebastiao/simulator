@@ -49,6 +49,14 @@ Caso utilize o Visual Studio Code como IDE, é recomendável configurar o ambien
 ~/.cache/pypoetry/virtualenvs/nome-do-projeto/bin/python
 ```
 
+## Migrations
+
+Para executar as migrations, rode o seguinte comando:
+
+```bash
+  make migrate
+```
+
 
 ## Análise de Código (Linting)
 
